@@ -3,26 +3,69 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
 
-@theme {
+/* Custom Properties */
+:root {
     /* Fonts */
     --font-heading: "Montserrat", ui-sans-serif, system-ui, sans-serif;
     --font-body: "Poppins", ui-sans-serif, system-ui, sans-serif;
 
     /* Colors */
-    --color-primary: #00796b; /* Deep Teal */
-    --color-primary-hover: #009688; /* Lighter Teal for hover */
-    --color-secondary: #4dd0e1; /* Soft Aqua */
-    --color-accent: #ffc107; /* Sunny Amber */
-    --color-light: #fafafa; /* Light Neutral */
-    --color-dark: #263238; /* Charcoal Gray */
-    --color-border: #b0bec5; /* Soft Gray Border */
+    --color-primary: #00796b;
+    --color-primary-hover: #009688;
+    --color-secondary: #4dd0e1;
+    --color-accent: #ffc107;
+    --color-light: #fafafa;
+    --color-dark: #263238;
+    --color-border: #b0bec5;
+}
+
+@layer base {
+    body {
+        font-family: var(--font-body);
+        background-color: var(--color-light);
+        color: var(--color-dark);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+    }
+}
+
+@layer components {
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+        transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-primary-hover);
+    }
+
+    .card {
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        border: 1px solid var(--color-border);
+    }
+
+    .status-on {
+        background-color: var(--color-secondary);
+        color: var(--color-light);
+    }
+
+    .status-off {
+        background-color: var(--color-border);
+        color: var(--color-dark);
+    }
+
+    /* Rest of your component styles... */
 }
 
 /* Custom utilities */
