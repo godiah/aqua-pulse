@@ -100,10 +100,10 @@
                         <span class="font-bold">0.75 kWh</span>
                     </div>
                     <div class="flex justify-between items-center">
-                        <span class="text-sm">Pump Health:</span>
+                        <span class="text-sm">Device Health:</span>
                         <div class="flex items-center">
                             <span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>
-                            <span class="font-bold">Excellent</span>
+                            <span class="font-bold">Online</span>
                         </div>
                     </div>
                 </div>

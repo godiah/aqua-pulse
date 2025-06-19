@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'tenant_id',
+        'device_id',
+        'role',
     ];
 
     /**
@@ -45,4 +48,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    const ROLE_SUPER_ADMIN = 'super_admin';
+    const ROLE_TENANT = 'tenant';
+
+    // Example helper methods
+    public function isSuperAdmin() {
+        return $this->role === self::ROLE_SUPER_ADMIN;
+    }
+
+    public function isTenant() {
+        return $this->role === self::ROLE_TENANT;
+    }
+
+
+
+
 }
