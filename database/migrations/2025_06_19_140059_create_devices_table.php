@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tenant_id')->constrained()->references('tenant_id')->on('users')->onDelete('cascade');
+            $table->enum('status', ['online', 'offline'])->default('offline');
+            $table->string('inflow_status')->nullable();
+            $table->timestamp('last_seen')->nullable();
             $table->timestamps();
         });
     }

@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tenant_id')
+                ->constrained('users', 'tenant_id')
+                ->onDelete('cascade');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->enum('day_of_week', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+                ->default('Monday');
+            $table->boolean('enabled')->default(false);
+
             $table->timestamps();
         });
     }
