@@ -3,6 +3,10 @@
         class="bg-white shadow-md w-full mx-auto px-4 sm:px-8 py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center fixed z-50 top-0">
         <h1 class="text-2xl font-bold">AquaPulse</h1>
         <div class="flex flex-row justify-between items-center mt-2 sm:mt-0 w-full sm:w-auto">
+            <div class="flex items-center mr-4">
+                <span class="inline-block w-2 h-2 rounded-full bg-gray-400 mr-2" id="mqtt-status-indicator"></span>
+                <span class="text-xs text-gray-600" id="mqtt-status">Connecting...</span>
+            </div>
             {{-- <span class="text-sm font-body mr-4">Last Updated: <span id="lastUpdated">May 1, 2025 10:30 AM</span></span> --}}
             <button class="btn-primary p-2 mr-4 rounded-lg font-body hover:bg-primary-hover">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">

@@ -259,6 +259,21 @@
     <!-- Footer -->
     @include('partials.footer')
 
+    <!-- MQTT Client Scripts -->
+    <script src="{{ asset('js/mqtt-client.js') }}"></script>
+    <script>
+        // Pass Laravel config to JavaScript (inline to access Blade variables)
+        window.mqttConfig = {
+            hostname: '{{ config("hivemq.broker_url") }}',
+            port: {{ config("hivemq.ws_port") }},
+            path: '{{ config("hivemq.ws_path") }}',
+            username: '{{ config("hivemq.username") }}',
+            password: '{{ config("hivemq.password") }}',
+            useSSL: {{ config("hivemq.use_ssl") ? 'true' : 'false' }}
+        };
+    </script>
+    <script src="{{ asset('js/mqtt-init.js') }}"></script>
+
     <!-- Chart & Pump Switch JavaScript -->
     <script>
         // Initialize the usage chart

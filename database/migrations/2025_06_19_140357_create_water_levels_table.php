@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('water_levels', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tenant_id')
-                ->constrained('users', 'tenant_id')
+            $table->string('tenant_id');
+            $table->foreign('tenant_id')
+                ->references('tenant_id')
+                ->on('users')
                 ->onDelete('cascade');
             $table->string('level');
             $table->timestamps();
