@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MqttController;
+use App\Http\Controllers\Api\DeviceLogApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,24 @@ Route::prefix('mqtt')->group(function () {
 
     // Pump control
     Route::post('/control-pump', [MqttController::class, 'controlPump']);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Device Logging Endpoints
+|--------------------------------------------------------------------------
+|
+| These routes handle device logs from MQTT/JavaScript clients
+|
+*/
+
+Route::prefix('logs')->group(function () {
+    // Create a single log entry
+    Route::post('/', [DeviceLogApiController::class, 'store']);
+
+    // Batch create log entries
+    Route::post('/batch', [DeviceLogApiController::class, 'storeBatch']);
+
+    // Get logs for a specific device
+    Route::get('/device/{deviceId}', [DeviceLogApiController::class, 'getDeviceLogs']);
 });

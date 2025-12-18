@@ -269,7 +269,8 @@
             path: '{{ config("hivemq.ws_path") }}',
             username: '{{ config("hivemq.username") }}',
             password: '{{ config("hivemq.password") }}',
-            useSSL: {{ config("hivemq.use_ssl") ? 'true' : 'false' }}
+            useSSL: {{ config("hivemq.use_ssl") ? 'true' : 'false' }},
+            deviceId: '{{ $deviceId }}'
         };
     </script>
     <script src="{{ asset('js/mqtt-init.js') }}"></script>

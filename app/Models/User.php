@@ -61,7 +61,11 @@ class User extends Authenticatable
         return $this->role === self::ROLE_TENANT;
     }
 
-
-
-
+    /**
+     * Get the device associated with the user.
+     */
+    public function device()
+    {
+        return $this->belongsTo(Device::class, 'device_id');
+    }
 }

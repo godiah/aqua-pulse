@@ -207,14 +207,20 @@ function controlPump(command) {
  * Get device ID from page or user session
  */
 function getDeviceId() {
+    // Try to get from MQTT config passed from backend
+    if (window.mqttConfig && window.mqttConfig.deviceId) {
+        return window.mqttConfig.deviceId;
+    }
+
     // Try to get from data attribute
     const deviceElement = document.querySelector('[data-device-id]');
     if (deviceElement) {
         return deviceElement.getAttribute('data-device-id');
     }
 
-    // Default device ID (you should set this properly)
-    return 'device_001';
+    // If no device ID is available, log error
+    console.error('No device ID found for user');
+    return null;
 }
 
 /**
